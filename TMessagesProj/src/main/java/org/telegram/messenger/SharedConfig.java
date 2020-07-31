@@ -493,6 +493,8 @@ public class SharedConfig {
                     days = 7;
                 } else if (keepMedia == 1) {
                     days = 30;
+                } else if (keepMedia == 4) {
+                    days = 1;
                 } else {
                     days = 3;
                 }
@@ -842,8 +844,8 @@ public class SharedConfig {
     public static void checkSaveToGalleryFiles() {
         try {
             File telegramPath;
-            if (NekoConfig.saveCacheToPrivateDirectory) {
-                telegramPath = new File(ApplicationLoader.applicationContext.getFilesDir(), "Telegram");
+            if (NekoConfig.saveCacheToExternalFilesDir) {
+                telegramPath = new File(ApplicationLoader.applicationContext.getExternalFilesDir(null), "Telegram");
             } else {
                 telegramPath = new File(Environment.getExternalStorageDirectory(), "Telegram");
             }
